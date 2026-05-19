@@ -1,0 +1,108 @@
+Fixed newly added item images not showing.
+
+Total item images found in assets/items: 20
+Total HTML item image src replacements: 176
+HTML files changed: 79
+
+Items available:
+- Arcane Boots: assets/items/Arcane_Boots.webp
+- Blade of Despair: assets/items/Blade_of_Despair.webp
+- Corrosion Scythe: assets/items/Corrosion_Scythe.webp
+- Divine Glaive: assets/items/Divine_Glaive.webp
+- Dominance Ice: assets/items/Dominance_Ice.webp
+- Fleeting Time: assets/items/Fleeting_Time.webp
+- Genius Wand: assets/items/Genius_Wand.webp
+- Glowing Wand: assets/items/Glowing_Wand.webp
+- Golden Staff: assets/items/Golden_Staff.webp
+- Guardian Helmet: assets/items/Guardian_Helmet.webp
+- Holy Crystal: assets/items/Holy_Crystal.webp
+- Hunter Strike: assets/items/Hunter_Strike.webp
+- Magic Shoes: assets/items/Magic_Shoes.webp
+- Malefic Roar: assets/items/Malefic_Roar.webp
+- Oracle: assets/items/Oracle.webp
+- Queen's Wings: assets/items/Queen's_Wings.webp
+- Swift Boots: assets/items/Swift_Boots.webp
+- Tough Boots: assets/items/Tough_Boots.webp
+- War Axe: assets/items/War_Axe.webp
+- Wind of Nature: assets/items/Wind_of_Nature.webp
+
+Changed files:
+- index.html: 69
+- heroes/akai.html: 1
+- heroes/aldous.html: 1
+- heroes/alucard.html: 1
+- heroes/alpha.html: 1
+- heroes/angela.html: 2
+- heroes/argus.html: 1
+- heroes/arlott.html: 1
+- heroes/atlas.html: 1
+- heroes/aulus.html: 1
+- heroes/badang.html: 1
+- heroes/balmond.html: 1
+- heroes/bane.html: 1
+- heroes/barats.html: 1
+- heroes/baxia.html: 1
+- heroes/beatrix.html: 2
+- heroes/belerick.html: 1
+- heroes/brody.html: 2
+- heroes/bruno.html: 2
+- heroes/carmilla.html: 2
+- heroes/chip.html: 2
+- heroes/chou.html: 1
+- heroes/claude.html: 2
+- heroes/clint.html: 2
+- heroes/diggie.html: 2
+- heroes/dyrroth.html: 1
+- heroes/edith.html: 1
+- heroes/esmeralda.html: 1
+- heroes/estes.html: 2
+- heroes/floryn.html: 2
+- heroes/franco.html: 1
+- heroes/fredrinn.html: 1
+- heroes/freya.html: 1
+- heroes/gatotkaca.html: 1
+- heroes/gloo.html: 1
+- heroes/granger.html: 2
+- heroes/grock.html: 1
+- heroes/guinevere.html: 1
+- heroes/hanabi.html: 2
+- heroes/hilda.html: 1
+- heroes/hylos.html: 1
+- heroes/irithel.html: 2
+- heroes/ixia.html: 2
+- heroes/jawhead.html: 1
+- heroes/johnson.html: 1
+- heroes/julian.html: 1
+- heroes/kaja.html: 2
+- heroes/karrie.html: 2
+- heroes/khaleed.html: 1
+- heroes/khufra.html: 1
+- heroes/lapu-lapu.html: 1
+- heroes/layla.html: 2
+- heroes/leomord.html: 1
+- heroes/lesley.html: 2
+- heroes/lolita.html: 1
+- heroes/martis.html: 1
+- heroes/masha.html: 1
+- heroes/mathilda.html: 2
+- heroes/melissa.html: 2
+- heroes/minotaur.html: 1
+- heroes/minsitthar.html: 1
+- heroes/miya.html: 2
+- heroes/moskov.html: 2
+- heroes/natan.html: 2
+- heroes/paquito.html: 1
+- heroes/popol-and-kupa.html: 2
+- heroes/rafaela.html: 2
+- heroes/roger.html: 2
+- heroes/ruby.html: 1
+- heroes/silvanna.html: 1
+- heroes/sun.html: 1
+- heroes/terizla.html: 1
+- heroes/thamuz.html: 1
+- heroes/tigreal.html: 1
+- heroes/wanwan.html: 2
+- heroes/yi-sun-shin.html: 2
+- heroes/yin.html: 1
+- heroes/yu-zhong.html: 1
+- heroes/zilong.html: 1

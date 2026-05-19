@@ -1,0 +1,22 @@
+window.LOCAL_ITEM_IMAGES = {
+  "Arcane Boots": "assets/items/Arcane_Boots.webp",
+  "Blade of Despair": "assets/items/Blade_of_Despair.webp",
+  "Corrosion Scythe": "assets/items/Corrosion_Scythe.webp",
+  "Divine Glaive": "assets/items/Divine_Glaive.webp",
+  "Dominance Ice": "assets/items/Dominance_Ice.webp",
+  "Fleeting Time": "assets/items/Fleeting_Time.webp",
+  "Genius Wand": "assets/items/Genius_Wand.webp",
+  "Glowing Wand": "assets/items/Glowing_Wand.webp",
+  "Golden Staff": "assets/items/Golden_Staff.webp",
+  "Guardian Helmet": "assets/items/Guardian_Helmet.webp",
+  "Holy Crystal": "assets/items/Holy_Crystal.webp",
+  "Hunter Strike": "assets/items/Hunter_Strike.webp",
+  "Magic Shoes": "assets/items/Magic_Shoes.webp",
+  "Malefic Roar": "assets/items/Malefic_Roar.webp",
+  "Oracle": "assets/items/Oracle.webp",
+  "Queen's Wings": "assets/items/Queen's_Wings.webp",
+  "Swift Boots": "assets/items/Swift_Boots.webp",
+  "Tough Boots": "assets/items/Tough_Boots.webp",
+  "War Axe": "assets/items/War_Axe.webp",
+  "Wind of Nature": "assets/items/Wind_of_Nature.webp"
+};
