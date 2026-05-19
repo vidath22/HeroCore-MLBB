@@ -261,3 +261,8 @@ Deep online image fix:
 - Added multi-step fallback for online hero images.
 - Added final initials fallback if external image host blocks hotlinking.
 - No local images required.
+
+Image proxy fix:
+- Hero images now use images.weserv.nl proxy + Fandom image source.
+- This avoids many hotlink blocking problems on GitHub Pages.
+- Local images are still not required.
