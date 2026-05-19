@@ -1,0 +1,16 @@
+Added item images:
+
+Arcane_Boots.webp
+Blade_of_Despair.webp
+Divine_Glaive.webp
+Dominance_Ice.webp
+Genius_Wand.webp
+Glowing_Wand.webp
+Golden_Staff.webp
+Holy_Crystal.webp
+Hunter_Strike.webp
+Malefic_Roar.webp
+Oracle.webp
+Queen's_Wings.webp
+Swift_Boots.webp
+Tough_Boots.webp
