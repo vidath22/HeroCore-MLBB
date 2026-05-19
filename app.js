@@ -748,13 +748,11 @@ function initRankPage(){
 /* ===== Matchup image fallback fix ===== */
 function robustHeroImage(hero){
   if(!hero) return '';
-  const online = (window.HERO_IMAGES && HERO_IMAGES[hero.name]) || `https://mobile-legends.fandom.com/wiki/Special:FilePath/${encodeURIComponent(hero.name.replaceAll(' ','_'))}.png`;
   const local = window.LOCAL_IMAGES?.heroes?.[hero.name];
+  const online = (window.HERO_IMAGES && HERO_IMAGES[hero.name]) || `https://mobile-legends.fandom.com/wiki/Special:FilePath/${encodeURIComponent(hero.name.replaceAll(' ','_'))}.png`;
 
-  // Important:
-  // Local images are optional. If local assets are missing, use online image first for visible portraits.
-  // Users can later change this priority after adding real local image files.
-  return online || local || '';
+  // Use verified local hero images first. If any local file is missing, fall back to online.
+  return local || online || '';
 }
 
 function smallHeroPortrait(hero){
@@ -1136,151 +1134,4 @@ function setActiveNavTab(){
 document.addEventListener('DOMContentLoaded', () => {
   setActiveNavTab();
   setTimeout(setActiveNavTab, 300);
-});
-
-
-
-
-
-
-
-
-/* ===== Online Image Proxy Fix ===== */
-function proxyHeroCandidates(heroName){
-  const safe = String(heroName || '').trim();
-  const file = encodeURIComponent(safe.replaceAll(' ', '_') + '.png');
-  const rawRedirect = `https://mobile-legends.fandom.com/wiki/Special:Redirect/file/${file}`;
-  const rawFilePath = `https://mobile-legends.fandom.com/wiki/Special:FilePath/${file}`;
-  const p1 = `https://images.weserv.nl/?url=${rawRedirect.replace('https://','')}&w=420&h=420&fit=cover&output=webp`;
-  const p2 = `https://images.weserv.nl/?url=${rawFilePath.replace('https://','')}&w=420&h=420&fit=cover&output=webp`;
-  const existing = (window.HERO_IMAGES && window.HERO_IMAGES[safe]) || '';
-  return [existing, p1, p2, rawRedirect, rawFilePath].filter(Boolean);
-}
-
-function applyProxyHeroImage(img, heroName){
-  if(!img) return;
-  const candidates = proxyHeroCandidates(heroName);
-  let i = 0;
-  const initials = String(heroName || 'Hero').split(/\s+/).map(x => x[0]).join('').slice(0,2).toUpperCase();
-
-  function fail(){
-    const parent = img.parentElement;
-    if(parent){
-      parent.classList.add('imageMissing');
-      parent.innerHTML = `<div class="smartImageFallback">${initials}</div>`;
-    }
-  }
-
-  function next(){
-    if(i >= candidates.length){
-      fail();
-      return;
-    }
-    img.src = candidates[i++];
-  }
-
-  img.referrerPolicy = 'no-referrer';
-  img.loading = 'lazy';
-  img.onerror = next;
-  next();
-}
-
-function fixProxyImages(){
-  const names = new Set(Object.keys(window.HERO_IMAGES || {}));
-  document.querySelectorAll('img[alt]').forEach(img => {
-    const alt = img.getAttribute('alt') || '';
-    if(!alt || img.dataset.proxyFixed === '1') return;
-    const src = img.getAttribute('src') || '';
-    const heroLike = names.has(alt) || img.closest('.heroThumb,.matchPortrait,.relatedThumb,.synergyPortrait,.tierThumb,.heroPortrait');
-    if(!heroLike) return;
-
-    img.dataset.proxyFixed = '1';
-    if(src.includes('assets/heroes') || src.includes('placeholder') || src === '' || img.naturalWidth === 0){
-      applyProxyHeroImage(img, alt);
-    }else{
-      img.onerror = () => applyProxyHeroImage(img, alt);
-    }
-  });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(fixProxyImages, 100);
-  setTimeout(fixProxyImages, 800);
-  setTimeout(fixProxyImages, 2000);
-});
-
-
-/* ===== Final Hero + Build Item Image Fix ===== */
-function finalHeroCandidates(heroName){
-  const safe = String(heroName || '').trim();
-  const base = safe.replaceAll(' ', '_');
-  const enc = encodeURIComponent(base);
-  const encMLBB = encodeURIComponent(base + '_MLBB');
-  const existing = (window.HERO_IMAGES && window.HERO_IMAGES[safe]) || '';
-  const urls = [
-    existing,
-    `https://images.weserv.nl/?url=mobile-legends.fandom.com/wiki/Special:Redirect/file/${encMLBB}.png&w=420&h=420&fit=cover&output=webp`,
-    `https://images.weserv.nl/?url=mobile-legends.fandom.com/wiki/Special:Redirect/file/${enc}.png&w=420&h=420&fit=cover&output=webp`,
-    `https://mobile-legends.fandom.com/wiki/Special:Redirect/file/${encMLBB}.png`,
-    `https://mobile-legends.fandom.com/wiki/Special:Redirect/file/${enc}.png`
-  ];
-  return [...new Set(urls.filter(Boolean))];
-}
-function finalApplyHeroImage(img, name){
-  let i = 0;
-  const candidates = finalHeroCandidates(name);
-  const initials = String(name || 'Hero').split(/\s+/).map(x=>x[0]).join('').slice(0,2).toUpperCase();
-  function next(){
-    if(i >= candidates.length){
-      const p = img.parentElement;
-      if(p){
-        p.classList.add('imageMissing');
-        p.innerHTML = `<div class="smartImageFallback">${initials}</div>`;
-      }
-      return;
-    }
-    img.src = candidates[i++];
-  }
-  img.onerror = next;
-  img.referrerPolicy = 'no-referrer';
-  img.loading = 'lazy';
-  next();
-}
-function finalFixHeroAndItemImages(){
-  const heroNames = new Set(Object.keys(window.HERO_IMAGES || {}));
-  document.querySelectorAll('img[alt]').forEach(img => {
-    const alt = img.getAttribute('alt') || '';
-    if(!alt || img.dataset.finalHeroFixed === '1') return;
-    const heroLike = heroNames.has(alt) || img.closest('.heroThumb,.matchPortrait,.relatedThumb,.synergyPortrait,.tierThumb,.heroPortrait');
-    if(heroLike){
-      img.dataset.finalHeroFixed = '1';
-      img.onerror = () => finalApplyHeroImage(img, alt);
-      const src = img.getAttribute('src') || '';
-      if(src.includes('assets/heroes') || src.includes('placeholder') || src === '' || img.naturalWidth === 0){
-        finalApplyHeroImage(img, alt);
-      }
-    }
-  });
-
-  // Build/item icons: replace local missing paths with online item images when possible.
-  document.querySelectorAll('.miniBuild img, .build img, .itemIcon img, .items img').forEach(img => {
-    if(img.dataset.finalItemFixed === '1') return;
-    img.dataset.finalItemFixed = '1';
-    const alt = img.getAttribute('alt') || img.getAttribute('title') || '';
-    const src = img.getAttribute('src') || '';
-    if(window.ITEM_IMAGES && window.ITEM_IMAGES[alt]){
-      img.src = window.ITEM_IMAGES[alt];
-    }
-    img.referrerPolicy = 'no-referrer';
-    img.onerror = () => {
-      img.style.display = 'none';
-      if(img.parentElement) img.parentElement.classList.add('iconMissing');
-    };
-  });
-}
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(finalFixHeroAndItemImages, 100);
-  setTimeout(finalFixHeroAndItemImages, 800);
-  setTimeout(finalFixHeroAndItemImages, 2000);
-  setTimeout(finalFixHeroAndItemImages, 4000);
 });

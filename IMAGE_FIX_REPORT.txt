@@ -1,0 +1,124 @@
+HeroCore MLBB hero image fix report
+========================================
+Verified hero images added: 115
+Missing/not matched: 1
+
+Matched images:
+- Aamon: Hero1091-icon -> assets/heroes/aamon.webp
+- Akai: Hero091-icon -> assets/heroes/akai.webp
+- Aldous: Hero641-icon -> assets/heroes/aldous.webp
+- Alice: Hero041-icon -> assets/heroes/alice.webp
+- Alucard: Hero071-icon -> assets/heroes/alucard.webp
+- Alpha: Hero281-icon -> assets/heroes/alpha.webp
+- Angela: Hero551-icon -> assets/heroes/angela.webp
+- Argus: Hero451-icon -> assets/heroes/argus.webp
+- Arlott: Hero1201-icon -> assets/heroes/arlott.webp
+- Atlas: Hero931-icon -> assets/heroes/atlas.webp
+- Aulus: Hero1081-icon -> assets/heroes/aulus.webp
+- Aurora: Hero361-icon -> assets/heroes/aurora.webp
+- Badang: Hero771-icon -> assets/heroes/badang.webp
+- Balmond: Hero021-icon -> assets/heroes/balmond.webp
+- Bane: Hero111-icon -> assets/heroes/bane.webp
+- Barats: Hero991-icon -> assets/heroes/barats.webp
+- Baxia: Hero871-icon -> assets/heroes/baxia.webp
+- Beatrix: Hero1051-icon -> assets/heroes/beatrix.webp
+- Belerick: Hero701-icon -> assets/heroes/belerick.webp
+- Benedetta: Hero971-icon -> assets/heroes/benedetta.webp
+- Brody: Hero1001-icon -> assets/heroes/brody.webp
+- Bruno: Hero121-icon -> assets/heroes/bruno.webp
+- Carmilla: Hero921-icon -> assets/heroes/carmilla.webp
+- Cecilion: Hero911-icon -> assets/heroes/cecilion.webp
+- Chang'e: Hero611-icon -> assets/heroes/chang-e.webp
+- Chip: Hero1241-icon -> assets/heroes/chip.webp
+- Chou: Hero261-icon -> assets/heroes/chou.webp
+- Claude: Hero651-icon -> assets/heroes/claude.webp
+- Clint: Hero131-icon -> assets/heroes/clint.webp
+- Cyclops: Hero331-icon -> assets/heroes/cyclops.webp
+- Diggie: Hero481-icon -> assets/heroes/diggie.webp
+- Dyrroth: Hero851-icon -> assets/heroes/dyrroth.webp
+- Edith: Hero1111-icon -> assets/heroes/edith.webp
+- Esmeralda: Hero811-icon -> assets/heroes/esmeralda.webp
+- Estes: Hero341-icon -> assets/heroes/estes.webp
+- Eudora: Hero151-icon -> assets/heroes/eudora.webp
+- Fanny: Hero171-icon -> assets/heroes/fanny.webp
+- Faramis: Hero761-icon -> assets/heroes/faramis.webp
+- Floryn: Hero1121-icon -> assets/heroes/floryn.webp
+- Franco: Hero101-icon -> assets/heroes/franco.webp
+- Fredrinn: Hero1171-icon -> assets/heroes/fredrinn.webp
+- Freya: Hero221-icon -> assets/heroes/freya.webp
+- Gatotkaca: Hero411-icon -> assets/heroes/gatotkaca.webp
+- Gloo: Hero1041-icon -> assets/heroes/gloo.webp
+- Gord: Hero231-icon -> assets/heroes/gord.webp
+- Granger: Hero791-icon -> assets/heroes/granger.webp
+- Grock: Hero441-icon -> assets/heroes/grock.webp
+- Guinevere: Hero801-icon -> assets/heroes/guinevere.webp
+- Gusion: Hero561-icon -> assets/heroes/gusion.webp
+- Hanabi: Hero601-icon -> assets/heroes/hanabi.webp
+- Hanzo: Hero691-icon -> assets/heroes/hanzo.webp
+- Harith: Hero731-icon -> assets/heroes/harith.webp
+- Harley: Hero421-icon -> assets/heroes/harley.webp
+- Hayabusa: Hero211-icon -> assets/heroes/hayabusa.webp
+- Helcurt: Hero511-icon -> assets/heroes/helcurt.webp
+- Hilda: Hero351-icon -> assets/heroes/hilda.webp
+- Hylos: Hero491-icon -> assets/heroes/hylos.webp
+- Irithel: Hero431-icon -> assets/heroes/irithel.webp
+- Ixia: Hero1211-icon -> assets/heroes/ixia.webp
+- Jawhead: Hero541-icon -> assets/heroes/jawhead.webp
+- Johnson: Hero321-icon -> assets/heroes/johnson.webp
+- Joy: Hero1181-icon -> assets/heroes/joy.webp
+- Julian: Hero1161-icon -> assets/heroes/julian.webp
+- Kadita: Hero751-icon -> assets/heroes/kadita.webp
+- Kagura: Hero251-icon -> assets/heroes/kagura.webp
+- Kaja: Hero621-icon -> assets/heroes/kaja.webp
+- Karina: Hero081-icon -> assets/heroes/karina.webp
+- Karrie: Hero401-icon -> assets/heroes/karrie.webp
+- Khaleed: Hero981-icon -> assets/heroes/khaleed.webp
+- Khufra: Hero781-icon -> assets/heroes/khufra.webp
+- Lancelot: Hero471-icon -> assets/heroes/lancelot.webp
+- Lapu-Lapu: Hero371-icon -> assets/heroes/lapu-lapu.webp
+- Layla: Hero181-icon -> assets/heroes/layla.webp
+- Leomord: Hero671-icon -> assets/heroes/leomord.webp
+- Lesley: Hero531-icon -> assets/heroes/lesley.webp
+- Ling: Hero841-icon -> assets/heroes/ling.webp
+- Lolita: Hero201-icon -> assets/heroes/lolita.webp
+- Lunox: Hero681-icon -> assets/heroes/lunox.webp
+- Lylia: Hero861-icon -> assets/heroes/lylia.webp
+- Martis: Hero581-icon -> assets/heroes/martis.webp
+- Masha: Hero881-icon -> assets/heroes/masha.webp
+- Mathilda: Hero1021-icon -> assets/heroes/mathilda.webp
+- Melissa: Hero1141-icon -> assets/heroes/melissa.webp
+- Minotaur: Hero191-icon -> assets/heroes/minotaur.webp
+- Minsitthar: Hero741-icon -> assets/heroes/minsitthar.webp
+- Miya: Hero011-icon -> assets/heroes/miya.webp
+- Moskov: Hero311-icon -> assets/heroes/moskov.webp
+- Nana: Hero051-icon -> assets/heroes/nana.webp
+- Natalia: Hero241-icon -> assets/heroes/natalia.webp
+- Natan: Hero1071-icon -> assets/heroes/natan.webp
+- Novaria: Hero1191-icon -> assets/heroes/novaria.webp
+- Odette: Hero461-icon -> assets/heroes/odette.webp
+- Paquito: Hero1031-icon -> assets/heroes/paquito.webp
+- Pharsa: Hero521-icon -> assets/heroes/pharsa.webp
+- Popol and Kupa: Hero941-icon -> assets/heroes/popol-and-kupa.webp
+- Rafaela: Hero141-icon -> assets/heroes/rafaela.webp
+- Roger: Hero391-icon -> assets/heroes/roger.webp
+- Saber: Hero031-icon -> assets/heroes/saber.webp
+- Selena: Hero631-icon -> assets/heroes/selena.webp
+- Silvanna: Hero901-icon -> assets/heroes/silvanna.webp
+- Sun: Hero271-icon -> assets/heroes/sun.webp
+- Terizla: Hero821-icon -> assets/heroes/terizla.webp
+- Thamuz: Hero721-icon -> assets/heroes/thamuz.webp
+- Tigreal: Hero061-icon -> assets/heroes/tigreal.webp
+- Valentina: Hero1101-icon -> assets/heroes/valentina.webp
+- Valir: Hero571-icon -> assets/heroes/valir.webp
+- Vexana: Hero381-icon -> assets/heroes/vexana.webp
+- Wanwan: Hero891-icon -> assets/heroes/wanwan.webp
+- Xavier: Hero1151-icon -> assets/heroes/xavier.webp
+- Yi Sun-shin: Hero301-icon -> assets/heroes/yi-sun-shin.webp
+- Yin: Hero1131-icon -> assets/heroes/yin.webp
+- Yu Zhong: Hero951-icon -> assets/heroes/yu-zhong.webp
+- Yve: Hero1011-icon -> assets/heroes/yve.webp
+- Zhask: Hero501-icon -> assets/heroes/zhask.webp
+- Zilong: Hero161-icon -> assets/heroes/zilong.webp
+
+Missing / not found in downloaded RAR:
+- Ruby: Hero291-icon (image file not in RAR)
