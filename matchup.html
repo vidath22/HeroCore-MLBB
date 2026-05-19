@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Hero Matchup Tool - HeroCore MLBB</title>
+  <meta name="description" content="Select your hero and enemy hero, then analyze score, reasons, win tips, skill interaction, build advice and playstyle guidance.">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="site.webmanifest">
+</head>
+
+<body class="toolStandalonePage">
+<div id="particles" class="particles"></div>
+
+<header class="top">
+  <nav class="nav">
+    <a class="brand" href="index.html">HeroCore <span>MLBB</span></a>
+    <div class="navlinks">
+      <a href="index.html#discover">Discover</a>
+      <a href="index.html#heroes">Heroes</a>
+      <a href="tools.html">Tools</a>
+      <a href="tier-list.html">Tier List</a>
+      <a href="guides.html">Guides</a>
+      <a href="matchup.html">Matchup</a>
+      <a href="favorites.html">Favorites</a>
+      <a href="about.html">About</a>
+      <button class="soundToggle" type="button" title="Toggle sound">🔊</button>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+<section class="detail heroHeader"><div class="titleRow"><div><span class="badge">Tool Page</span><div class="pageToolLogo">🥊</div><h1>Hero Matchup Tool</h1><p class="meta">Select your hero and enemy hero, then analyze score, reasons, win tips, skill interaction, build advice and playstyle guidance.</p></div><a class="btn ghost" href="tools.html">← Tools Hub</a></div></section>
+<section class="tool"><div class="draftRow matchupShort"><select id="matchHero"><option value="">Select hero</option><option value="aamon">Aamon</option><option value="akai">Akai</option><option value="aldous">Aldous</option><option value="alice">Alice</option><option value="alucard">Alucard</option><option value="alpha">Alpha</option><option value="angela">Angela</option><option value="argus">Argus</option><option value="arlott">Arlott</option><option value="atlas">Atlas</option><option value="aulus">Aulus</option><option value="aurora">Aurora</option><option value="badang">Badang</option><option value="balmond">Balmond</option><option value="bane">Bane</option><option value="barats">Barats</option><option value="baxia">Baxia</option><option value="beatrix">Beatrix</option><option value="belerick">Belerick</option><option value="benedetta">Benedetta</option><option value="brody">Brody</option><option value="bruno">Bruno</option><option value="carmilla">Carmilla</option><option value="cecilion">Cecilion</option><option value="chang-e">Chang&#x27;e</option><option value="chip">Chip</option><option value="chou">Chou</option><option value="claude">Claude</option><option value="clint">Clint</option><option value="cyclops">Cyclops</option><option value="diggie">Diggie</option><option value="dyrroth">Dyrroth</option><option value="edith">Edith</option><option value="esmeralda">Esmeralda</option><option value="estes">Estes</option><option value="eudora">Eudora</option><option value="fanny">Fanny</option><option value="faramis">Faramis</option><option value="floryn">Floryn</option><option value="franco">Franco</option><option value="fredrinn">Fredrinn</option><option value="freya">Freya</option><option value="gatotkaca">Gatotkaca</option><option value="gloo">Gloo</option><option value="gord">Gord</option><option value="granger">Granger</option><option value="grock">Grock</option><option value="guinevere">Guinevere</option><option value="gusion">Gusion</option><option value="hanabi">Hanabi</option><option value="hanzo">Hanzo</option><option value="harith">Harith</option><option value="harley">Harley</option><option value="hayabusa">Hayabusa</option><option value="helcurt">Helcurt</option><option value="hilda">Hilda</option><option value="hylos">Hylos</option><option value="irithel">Irithel</option><option value="ixia">Ixia</option><option value="jawhead">Jawhead</option><option value="johnson">Johnson</option><option value="joy">Joy</option><option value="julian">Julian</option><option value="kadita">Kadita</option><option value="kagura">Kagura</option><option value="kaja">Kaja</option><option value="karina">Karina</option><option value="karrie">Karrie</option><option value="khaleed">Khaleed</option><option value="khufra">Khufra</option><option value="lancelot">Lancelot</option><option value="lapu-lapu">Lapu-Lapu</option><option value="layla">Layla</option><option value="leomord">Leomord</option><option value="lesley">Lesley</option><option value="ling">Ling</option><option value="lolita">Lolita</option><option value="lunox">Lunox</option><option value="lylia">Lylia</option><option value="martis">Martis</option><option value="masha">Masha</option><option value="mathilda">Mathilda</option><option value="melissa">Melissa</option><option value="minotaur">Minotaur</option><option value="minsitthar">Minsitthar</option><option value="miya">Miya</option><option value="moskov">Moskov</option><option value="nana">Nana</option><option value="natalia">Natalia</option><option value="natan">Natan</option><option value="novaria">Novaria</option><option value="odette">Odette</option><option value="paquito">Paquito</option><option value="pharsa">Pharsa</option><option value="popol-and-kupa">Popol and Kupa</option><option value="rafaela">Rafaela</option><option value="roger">Roger</option><option value="ruby">Ruby</option><option value="saber">Saber</option><option value="selena">Selena</option><option value="silvanna">Silvanna</option><option value="sun">Sun</option><option value="terizla">Terizla</option><option value="thamuz">Thamuz</option><option value="tigreal">Tigreal</option><option value="valentina">Valentina</option><option value="valir">Valir</option><option value="vexana">Vexana</option><option value="wanwan">Wanwan</option><option value="xavier">Xavier</option><option value="yi-sun-shin">Yi Sun-shin</option><option value="yin">Yin</option><option value="yu-zhong">Yu Zhong</option><option value="yve">Yve</option><option value="zhask">Zhask</option><option value="zilong">Zilong</option></select><select id="matchEnemy"><option value="">Select hero</option><option value="aamon">Aamon</option><option value="akai">Akai</option><option value="aldous">Aldous</option><option value="alice">Alice</option><option value="alucard">Alucard</option><option value="alpha">Alpha</option><option value="angela">Angela</option><option value="argus">Argus</option><option value="arlott">Arlott</option><option value="atlas">Atlas</option><option value="aulus">Aulus</option><option value="aurora">Aurora</option><option value="badang">Badang</option><option value="balmond">Balmond</option><option value="bane">Bane</option><option value="barats">Barats</option><option value="baxia">Baxia</option><option value="beatrix">Beatrix</option><option value="belerick">Belerick</option><option value="benedetta">Benedetta</option><option value="brody">Brody</option><option value="bruno">Bruno</option><option value="carmilla">Carmilla</option><option value="cecilion">Cecilion</option><option value="chang-e">Chang&#x27;e</option><option value="chip">Chip</option><option value="chou">Chou</option><option value="claude">Claude</option><option value="clint">Clint</option><option value="cyclops">Cyclops</option><option value="diggie">Diggie</option><option value="dyrroth">Dyrroth</option><option value="edith">Edith</option><option value="esmeralda">Esmeralda</option><option value="estes">Estes</option><option value="eudora">Eudora</option><option value="fanny">Fanny</option><option value="faramis">Faramis</option><option value="floryn">Floryn</option><option value="franco">Franco</option><option value="fredrinn">Fredrinn</option><option value="freya">Freya</option><option value="gatotkaca">Gatotkaca</option><option value="gloo">Gloo</option><option value="gord">Gord</option><option value="granger">Granger</option><option value="grock">Grock</option><option value="guinevere">Guinevere</option><option value="gusion">Gusion</option><option value="hanabi">Hanabi</option><option value="hanzo">Hanzo</option><option value="harith">Harith</option><option value="harley">Harley</option><option value="hayabusa">Hayabusa</option><option value="helcurt">Helcurt</option><option value="hilda">Hilda</option><option value="hylos">Hylos</option><option value="irithel">Irithel</option><option value="ixia">Ixia</option><option value="jawhead">Jawhead</option><option value="johnson">Johnson</option><option value="joy">Joy</option><option value="julian">Julian</option><option value="kadita">Kadita</option><option value="kagura">Kagura</option><option value="kaja">Kaja</option><option value="karina">Karina</option><option value="karrie">Karrie</option><option value="khaleed">Khaleed</option><option value="khufra">Khufra</option><option value="lancelot">Lancelot</option><option value="lapu-lapu">Lapu-Lapu</option><option value="layla">Layla</option><option value="leomord">Leomord</option><option value="lesley">Lesley</option><option value="ling">Ling</option><option value="lolita">Lolita</option><option value="lunox">Lunox</option><option value="lylia">Lylia</option><option value="martis">Martis</option><option value="masha">Masha</option><option value="mathilda">Mathilda</option><option value="melissa">Melissa</option><option value="minotaur">Minotaur</option><option value="minsitthar">Minsitthar</option><option value="miya">Miya</option><option value="moskov">Moskov</option><option value="nana">Nana</option><option value="natalia">Natalia</option><option value="natan">Natan</option><option value="novaria">Novaria</option><option value="odette">Odette</option><option value="paquito">Paquito</option><option value="pharsa">Pharsa</option><option value="popol-and-kupa">Popol and Kupa</option><option value="rafaela">Rafaela</option><option value="roger">Roger</option><option value="ruby">Ruby</option><option value="saber">Saber</option><option value="selena">Selena</option><option value="silvanna">Silvanna</option><option value="sun">Sun</option><option value="terizla">Terizla</option><option value="thamuz">Thamuz</option><option value="tigreal">Tigreal</option><option value="valentina">Valentina</option><option value="valir">Valir</option><option value="vexana">Vexana</option><option value="wanwan">Wanwan</option><option value="xavier">Xavier</option><option value="yi-sun-shin">Yi Sun-shin</option><option value="yin">Yin</option><option value="yu-zhong">Yu Zhong</option><option value="yve">Yve</option><option value="zhask">Zhask</option><option value="zilong">Zilong</option></select><button class="btn" id="matchupBtn" type="button">Analyze matchup</button></div><div id="matchupResults"></div></section>
+<section class="wrap accuracyNoticeWrap pageTrustNote">
+  <div class="accuracyNotice">
+    <b>Accuracy note:</b>
+    <span>Guide data is community-style and may change with MLBB patches. Use tools as quick advice. The real game still depends on draft, skill and teamwork.</span>
+    <a href="disclaimer.html">Disclaimer</a>
+  </div>
+</section>
+</main>
+<footer class="footer">
+<div class="footerLinks">
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="privacy-policy.html">Privacy Policy</a>
+  <a href="disclaimer.html">Disclaimer</a>
+</div>
+Hero Matchup Tool • static-safe rebuild</footer>
+
+<script src="data/heroes.js"></script>
+<script src="data/items.js"></script>
+<script src="data/hero-images.js"></script>
+<script src="data/local-images.js"></script>
+<script src="data/skills.js"></script>
+<script src="data/advanced-guides.js"></script>
+<script src="data/clean-skills.js"></script>
+<script src="data/synergy.js"></script>
+<script src="data/synergy-overrides.js"></script>
+<script src="data/player-tips.js"></script>
+<script src="app.js"></script>
+
+<script>initMatchup();</script>
+</body></html>

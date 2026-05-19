@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Favorite Heroes - HeroCore MLBB</title>
+  <meta name="description" content="Saved heroes from your browser.">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="site.webmanifest">
+</head>
+
+<body class="toolStandalonePage">
+<div id="particles" class="particles"></div>
+
+<header class="top">
+  <nav class="nav">
+    <a class="brand" href="index.html">HeroCore <span>MLBB</span></a>
+    <div class="navlinks">
+      <a href="index.html#discover">Discover</a>
+      <a href="index.html#heroes">Heroes</a>
+      <a href="tools.html">Tools</a>
+      <a href="tier-list.html">Tier List</a>
+      <a href="guides.html">Guides</a>
+      <a href="matchup.html">Matchup</a>
+      <a href="favorites.html">Favorites</a>
+      <a href="about.html">About</a>
+      <button class="soundToggle" type="button" title="Toggle sound">🔊</button>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+<section class="detail heroHeader"><div class="titleRow"><div><span class="badge">Tool Page</span><div class="pageToolLogo">⭐</div><h1>Favorite Heroes</h1><p class="meta">Saved heroes from your browser.</p></div><a class="btn ghost" href="tools.html">← Tools Hub</a></div></section>
+<section class="tool"><p class="meta" id="favoritePageCount">0 heroes saved</p><div class="grid compact" id="favoriteGrid"></div></section>
+<section class="wrap accuracyNoticeWrap pageTrustNote">
+  <div class="accuracyNotice">
+    <b>Accuracy note:</b>
+    <span>Guide data is community-style and may change with MLBB patches. Use tools as quick advice. The real game still depends on draft, skill and teamwork.</span>
+    <a href="disclaimer.html">Disclaimer</a>
+  </div>
+</section>
+</main>
+<footer class="footer">
+<div class="footerLinks">
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="privacy-policy.html">Privacy Policy</a>
+  <a href="disclaimer.html">Disclaimer</a>
+</div>
+Favorite Heroes • static-safe rebuild</footer>
+
+<script src="data/heroes.js"></script>
+<script src="data/items.js"></script>
+<script src="data/hero-images.js"></script>
+<script src="data/local-images.js"></script>
+<script src="data/skills.js"></script>
+<script src="data/advanced-guides.js"></script>
+<script src="data/clean-skills.js"></script>
+<script src="data/synergy.js"></script>
+<script src="data/synergy-overrides.js"></script>
+<script src="data/player-tips.js"></script>
+<script src="app.js"></script>
+
+<script>initFavoritesPage();</script>
+</body></html>

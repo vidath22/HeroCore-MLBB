@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Meta Updates - HeroCore MLBB</title>
+  <meta name="description" content="HeroCore MLBB meta update notes, rising heroes and community guide data status.">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="site.webmanifest">
+</head>
+
+<body class="metaPage">
+<div id="particles" class="particles"></div>
+<header class="top">
+  <nav class="nav">
+    <a class="brand" href="index.html">HeroCore <span>MLBB</span></a>
+    <div class="navlinks">
+      <a href="index.html#discover">Discover</a>
+      <a href="index.html#heroes">Heroes</a>
+      <a href="tools.html">Tools</a>
+      <a href="tier-list.html">Tier List</a>
+      <a href="guides.html">Guides</a>
+      <a href="matchup.html">Matchup</a>
+      <a href="favorites.html">Favorites</a>
+      <a href="about.html">About</a>
+      <button class="soundToggle" type="button" title="Toggle sound">🔊</button>
+    </div>
+  </nav>
+</header>
+<main class="wrap">
+  <section class="detail heroHeader">
+    <div class="titleRow">
+      <div>
+        <span class="badge">Meta Updates</span>
+        <h1>Patch / Meta Notes</h1>
+        <p class="meta">Manual update page to make the site feel active and transparent about guide accuracy.</p>
+      </div>
+      <a class="btn ghost" href="index.html">← Back home</a>
+    </div>
+  </section>
+
+  <section class="accuracyNotice">
+    <b>Last updated:</b>
+    <span>2026-05-19. Meta data is community-guide based and may change with MLBB patches.</span>
+  </section>
+
+  <section class="detail">
+    <h2>Current site data status</h2>
+    <ul class="list">
+      <li>Tier, build, counter and synergy data are guide-style recommendations.</li>
+      <li>Skill section uses clean Passive / Skill 1 / Skill 2 / Ultimate slots to avoid wrong official names.</li>
+      <li>Expert duo picks can be updated in <b>data/synergy-overrides.js</b>.</li>
+      <li>Before competitive use, verify with in-game patch changes.</li>
+    </ul>
+  </section>
+
+  <section class="detail">
+    <div class="titleRow"><h2>🔥 High Priority Heroes</h2><span class="badge small">From project data</span></div>
+    <div class="tierGrid"><a class="tierHeroCard" href="heroes/claude.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero651-icon.png" alt="Claude" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Claude</b>
+    <span>Marksman • Gold Lane</span>
+    <em>S Tier • 96/100</em>
+  </div>
+</a><a class="tierHeroCard" href="heroes/minsitthar.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero741-icon.png" alt="Minsitthar" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Minsitthar</b>
+    <span>Fighter • EXP Lane</span>
+    <em>S Tier • 96/100</em>
+  </div>
+</a><a class="tierHeroCard" href="heroes/eudora.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero151-icon.png" alt="Eudora" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Eudora</b>
+    <span>Mage • Mid Lane</span>
+    <em>S Tier • 95/100</em>
+  </div>
+</a><a class="tierHeroCard" href="heroes/helcurt.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero511-icon.png" alt="Helcurt" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Helcurt</b>
+    <span>Assassin • Jungle</span>
+    <em>S Tier • 95/100</em>
+  </div>
+</a><a class="tierHeroCard" href="heroes/lancelot.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero471-icon.png" alt="Lancelot" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Lancelot</b>
+    <span>Assassin • Jungle</span>
+    <em>S Tier • 93/100</em>
+  </div>
+</a><a class="tierHeroCard" href="heroes/natan.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero1071-icon.png" alt="Natan" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Natan</b>
+    <span>Marksman • Gold Lane</span>
+    <em>S Tier • 93/100</em>
+  </div>
+</a><a class="tierHeroCard" href="heroes/wanwan.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero891-icon.png" alt="Wanwan" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Wanwan</b>
+    <span>Marksman • Gold Lane</span>
+    <em>S Tier • 93/100</em>
+  </div>
+</a><a class="tierHeroCard" href="heroes/bruno.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero121-icon.png" alt="Bruno" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Bruno</b>
+    <span>Marksman • Gold Lane</span>
+    <em>S Tier • 92/100</em>
+  </div>
+</a><a class="tierHeroCard" href="heroes/gusion.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero561-icon.png" alt="Gusion" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Gusion</b>
+    <span>Assassin • Jungle</span>
+    <em>S Tier • 91/100</em>
+  </div>
+</a><a class="tierHeroCard" href="heroes/karrie.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero401-icon.png" alt="Karrie" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Karrie</b>
+    <span>Marksman • Gold Lane</span>
+    <em>S Tier • 91/100</em>
+  </div>
+</a><a class="tierHeroCard" href="heroes/moskov.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero311-icon.png" alt="Moskov" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Moskov</b>
+    <span>Marksman • Gold Lane</span>
+    <em>S Tier • 91/100</em>
+  </div>
+</a><a class="tierHeroCard" href="heroes/valentina.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero1101-icon.png" alt="Valentina" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Valentina</b>
+    <span>Mage • Mid Lane</span>
+    <em>S Tier • 91/100</em>
+  </div>
+</a></div>
+  </section>
+
+  <section class="detail">
+    <div class="titleRow"><h2>📈 Heroes to Watch</h2><span class="badge small">Rising/strong picks</span></div>
+    <div class="tierGrid"><a class="tierHeroCard" href="heroes/claude.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero651-icon.png" alt="Claude" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Claude</b>
+    <span>Marksman • Gold Lane</span>
+    <em>S Tier • 96/100</em>
+  </div>
+</a><a class="tierHeroCard" href="heroes/minsitthar.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero741-icon.png" alt="Minsitthar" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Minsitthar</b>
+    <span>Fighter • EXP Lane</span>
+    <em>S Tier • 96/100</em>
+  </div>
+</a><a class="tierHeroCard" href="heroes/helcurt.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero511-icon.png" alt="Helcurt" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Helcurt</b>
+    <span>Assassin • Jungle</span>
+    <em>S Tier • 95/100</em>
+  </div>
+</a><a class="tierHeroCard" href="heroes/eudora.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero151-icon.png" alt="Eudora" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Eudora</b>
+    <span>Mage • Mid Lane</span>
+    <em>S Tier • 95/100</em>
+  </div>
+</a><a class="tierHeroCard" href="heroes/lancelot.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero471-icon.png" alt="Lancelot" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Lancelot</b>
+    <span>Assassin • Jungle</span>
+    <em>S Tier • 93/100</em>
+  </div>
+</a><a class="tierHeroCard" href="heroes/natan.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero1071-icon.png" alt="Natan" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Natan</b>
+    <span>Marksman • Gold Lane</span>
+    <em>S Tier • 93/100</em>
+  </div>
+</a><a class="tierHeroCard" href="heroes/wanwan.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero891-icon.png" alt="Wanwan" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Wanwan</b>
+    <span>Marksman • Gold Lane</span>
+    <em>S Tier • 93/100</em>
+  </div>
+</a><a class="tierHeroCard" href="heroes/bruno.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero121-icon.png" alt="Bruno" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Bruno</b>
+    <span>Marksman • Gold Lane</span>
+    <em>S Tier • 92/100</em>
+  </div>
+</a><a class="tierHeroCard" href="heroes/gusion.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero561-icon.png" alt="Gusion" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Gusion</b>
+    <span>Assassin • Jungle</span>
+    <em>S Tier • 91/100</em>
+  </div>
+</a><a class="tierHeroCard" href="heroes/karrie.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero401-icon.png" alt="Karrie" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Karrie</b>
+    <span>Marksman • Gold Lane</span>
+    <em>S Tier • 91/100</em>
+  </div>
+</a><a class="tierHeroCard" href="heroes/moskov.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero311-icon.png" alt="Moskov" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Moskov</b>
+    <span>Marksman • Gold Lane</span>
+    <em>S Tier • 91/100</em>
+  </div>
+</a><a class="tierHeroCard" href="heroes/valentina.html">
+  <div class="tierThumb"><img src="https://mobile-legends.fandom.com/wiki/Special:FilePath/Hero1101-icon.png" alt="Valentina" loading="lazy" onerror="this.parentElement.classList.add('imageMissing');this.remove();"></div>
+  <div>
+    <b>Valentina</b>
+    <span>Mage • Mid Lane</span>
+    <em>S Tier • 91/100</em>
+  </div>
+</a></div>
+  </section>
+
+  <section class="detail">
+    <h2>Manual update checklist</h2>
+    <ul class="list good">
+      <li>Check current patch buffs and nerfs.</li>
+      <li>Update top meta heroes.</li>
+      <li>Update item builds for important heroes.</li>
+      <li>Add your real duo experience to synergy overrides.</li>
+      <li>Test tools after data changes.</li>
+    </ul>
+  </section>
+</main>
+<footer class="footer">
+  <div class="footerLinks">
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="disclaimer.html">Disclaimer</a>
+    <a href="meta-updates.html">Meta Updates</a>
+  </div>
+  <p class="meta">© 2026 HeroCore MLBB. Unofficial fan-made MLBB guide website.</p>
+</footer>
+<script src="data/heroes.js"></script>
+<script src="data/items.js"></script>
+<script src="data/hero-images.js"></script>
+<script src="data/local-images.js"></script>
+<script src="data/skills.js"></script>
+<script src="data/clean-skills.js"></script>
+<script src="data/advanced-guides.js"></script>
+<script src="data/synergy.js"></script>
+<script src="data/synergy-overrides.js"></script>
+<script src="data/player-tips.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

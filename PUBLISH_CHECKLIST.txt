@@ -1,0 +1,51 @@
+HeroCore MLBB Publish Checklist
+===============================
+
+Customized details:
+- Owner/Developer: Vidath Lalindu
+- Contact email: vidathnew@gmail.com
+- Country: Sri Lanka
+- Domain: not yet
+- Contact method: Email only
+- Ads plan: No ads yet / possible future Google AdSense
+- Disclaimer style: Professional
+
+Added/updated pages:
+- about.html
+- contact.html
+- privacy-policy.html
+- disclaimer.html
+
+Before publishing:
+1. Buy/connect your domain.
+2. Replace https://example.com/ in sitemap.xml and robots.txt with your real domain.
+3. Test:
+   - index.html
+   - tools.html
+   - matchup.html
+   - synergy.html
+   - about.html
+   - contact.html
+   - privacy-policy.html
+   - disclaimer.html
+4. If you add Google AdSense:
+   - update Privacy Policy
+   - add AdSense script after setup
+   - make sure content is original and useful
+5. Verify builds/counters/synergy against current MLBB meta.
+6. Check image usage and copyright safety.
+
+Last updated: 2026-05-19
+
+
+Added before free publish:
+- Homepage CTA blocks
+- guides.html
+- tier-list.html
+- meta-updates.html
+- Visible accuracy notes on tools and hero pages
+- Extra synergy override examples
+
+Free publish status:
+- Ready for GitHub Pages / Netlify / Cloudflare Pages beta testing.
+- Replace example.com after you get a free hosting URL.

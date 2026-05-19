@@ -1,0 +1,8 @@
+{
+  "name": "HeroCore MLBB",
+  "short_name": "HeroCore",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#030611",
+  "theme_color": "#00d4ff"
+}
