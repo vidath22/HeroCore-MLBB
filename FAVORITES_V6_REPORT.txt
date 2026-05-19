@@ -1,0 +1,8 @@
+Favorites system improved:
+- Star button on hero cards
+- Saves favorites in localStorage
+- Favorites count badge
+- Favorites page/filter support
+- Empty favorites message
+- Toast notification
+- Works after JS re-renders cards

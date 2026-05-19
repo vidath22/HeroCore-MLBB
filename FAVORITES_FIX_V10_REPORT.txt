@@ -1,0 +1,3 @@
+Fixed favorites page showing 0 while navbar count shows saved heroes.
+Cause: favorites page and navbar were reading different localStorage keys / formats.
+Fix: favorites.html now reads all known favorite keys, syncs them, and renders saved hero cards.

@@ -1144,3 +1144,390 @@ document.addEventListener('DOMContentLoaded', () => {
   setActiveNavTab();
   setTimeout(setActiveNavTab, 300);
 });
+
+
+
+/* ===== Improved Favorites System v6 ===== */
+(function(){
+  const KEY = "herocore_favorite_heroes_v6";
+
+  function readFavs(){
+    try {
+      const raw = localStorage.getItem(KEY) || localStorage.getItem("herocore_favorites") || "[]";
+      const arr = JSON.parse(raw);
+      return new Set(Array.isArray(arr) ? arr : []);
+    } catch(e) {
+      return new Set();
+    }
+  }
+
+  function writeFavs(set){
+    const arr = [...set].sort();
+    localStorage.setItem(KEY, JSON.stringify(arr));
+    localStorage.setItem("herocore_favorites", JSON.stringify(arr)); // old compatibility
+  }
+
+  function heroNameFromCard(card){
+    return (
+      card?.dataset?.hero ||
+      card?.querySelector("[data-hero-name]")?.dataset?.heroName ||
+      card?.querySelector("h2,h3,.hero-name,.card-title")?.textContent?.trim() ||
+      ""
+    );
+  }
+
+  function updateOneButton(btn, active){
+    btn.classList.toggle("is-favorite", active);
+    btn.setAttribute("aria-pressed", active ? "true" : "false");
+    btn.title = active ? "Remove from Favorites" : "Add to Favorites";
+    btn.innerHTML = active ? "★" : "☆";
+  }
+
+  function decorateCards(){
+    const favs = readFavs();
+    const cards = document.querySelectorAll(".hero-card, .card, article");
+
+    cards.forEach(card => {
+      const name = heroNameFromCard(card);
+      if(!name) return;
+
+      card.dataset.hero = name;
+      card.classList.toggle("favorite-active", favs.has(name));
+
+      let btn = card.querySelector(".favorite-btn");
+      if(!btn){
+        btn = document.createElement("button");
+        btn.className = "favorite-btn";
+        btn.type = "button";
+        btn.setAttribute("aria-label", "Toggle favorite");
+        const img = card.querySelector("img");
+        if(img && img.parentElement){
+          img.parentElement.style.position = img.parentElement.style.position || "relative";
+          img.parentElement.appendChild(btn);
+        } else {
+          card.prepend(btn);
+        }
+      }
+
+      updateOneButton(btn, favs.has(name));
+
+      if(!btn.dataset.bound){
+        btn.dataset.bound = "1";
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const current = readFavs();
+          if(current.has(name)) current.delete(name);
+          else current.add(name);
+
+          writeFavs(current);
+          decorateCards();
+          renderFavoritePageIfNeeded();
+          showFavToast(current.has(name) ? `${name} added to favorites` : `${name} removed`);
+        });
+      }
+    });
+
+    updateFavCount();
+  }
+
+  function updateFavCount(){
+    const count = readFavs().size;
+    document.querySelectorAll("[data-fav-count], .fav-count").forEach(el => {
+      el.textContent = count;
+    });
+  }
+
+  function showFavToast(text){
+    let t = document.querySelector(".fav-toast");
+    if(!t){
+      t = document.createElement("div");
+      t.className = "fav-toast";
+      document.body.appendChild(t);
+    }
+    t.textContent = text;
+    t.classList.add("show");
+    clearTimeout(window.__favToastTimer);
+    window.__favToastTimer = setTimeout(() => t.classList.remove("show"), 1500);
+  }
+
+  function renderFavoritePageIfNeeded(){
+    const hash = location.hash.toLowerCase();
+    const isFavPage = hash.includes("favorite") || document.body.classList.contains("favorites-page");
+    if(!isFavPage) return;
+
+    const favs = readFavs();
+    const cards = document.querySelectorAll(".hero-card, .card, article");
+    let visible = 0;
+
+    cards.forEach(card => {
+      const name = heroNameFromCard(card);
+      if(!name) return;
+      const show = favs.has(name);
+      card.style.display = show ? "" : "none";
+      if(show) visible++;
+    });
+
+    let empty = document.querySelector(".favorites-empty");
+    if(!empty){
+      empty = document.createElement("div");
+      empty.className = "favorites-empty";
+      empty.innerHTML = `
+        <h2>No favorite heroes yet</h2>
+        <p>Press the ☆ button on any hero card to save it here.</p>
+        <a href="index.html#heroes" class="btn">Browse heroes</a>
+      `;
+      const main = document.querySelector("main") || document.body;
+      main.appendChild(empty);
+    }
+    empty.style.display = visible ? "none" : "block";
+  }
+
+  function addStyles(){
+    if(document.querySelector("#favorites-v6-style")) return;
+    const style = document.createElement("style");
+    style.id = "favorites-v6-style";
+    style.textContent = `
+      .favorite-btn{
+        position:absolute;
+        top:10px;
+        right:10px;
+        z-index:5;
+        width:38px;
+        height:38px;
+        border-radius:999px;
+        border:1px solid rgba(255,255,255,.25);
+        background:rgba(5,12,28,.78);
+        color:#fff;
+        font-size:24px;
+        line-height:1;
+        cursor:pointer;
+        display:grid;
+        place-items:center;
+        box-shadow:0 10px 24px rgba(0,0,0,.28);
+        backdrop-filter:blur(8px);
+        transition:transform .16s ease, background .16s ease, color .16s ease;
+      }
+      .favorite-btn:hover{ transform:scale(1.08); }
+      .favorite-btn.is-favorite{
+        color:#ffd95a;
+        background:rgba(255,185,45,.18);
+        border-color:rgba(255,217,90,.7);
+      }
+      .favorite-active{
+        outline:1px solid rgba(255,217,90,.35);
+        box-shadow:0 0 0 1px rgba(255,217,90,.15), 0 18px 50px rgba(255,217,90,.08);
+      }
+      .fav-toast{
+        position:fixed;
+        left:50%;
+        bottom:24px;
+        transform:translate(-50%, 20px);
+        opacity:0;
+        pointer-events:none;
+        z-index:9999;
+        padding:12px 18px;
+        border-radius:999px;
+        background:rgba(10,20,45,.92);
+        color:white;
+        border:1px solid rgba(0,212,255,.35);
+        box-shadow:0 14px 40px rgba(0,0,0,.35);
+        transition:opacity .2s ease, transform .2s ease;
+      }
+      .fav-toast.show{
+        opacity:1;
+        transform:translate(-50%, 0);
+      }
+      .favorites-empty{
+        max-width:520px;
+        margin:40px auto;
+        text-align:center;
+        padding:28px;
+        border-radius:24px;
+        background:rgba(255,255,255,.06);
+        border:1px solid rgba(255,255,255,.12);
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  function boot(){
+    addStyles();
+    decorateCards();
+    renderFavoritePageIfNeeded();
+
+    const mo = new MutationObserver(() => {
+      clearTimeout(window.__favDecorateTimer);
+      window.__favDecorateTimer = setTimeout(() => {
+        decorateCards();
+        renderFavoritePageIfNeeded();
+      }, 80);
+    });
+    mo.observe(document.body, { childList:true, subtree:true });
+
+    window.addEventListener("hashchange", () => {
+      setTimeout(() => {
+        decorateCards();
+        renderFavoritePageIfNeeded();
+      }, 80);
+    });
+  }
+
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
+
+  window.HeroCoreFavorites = { readFavs, writeFavs, decorateCards };
+})();
+
+
+
+
+/* ===== Counter Insight System ===== */
+window.HEROCORE_COUNTER_INSIGHTS = {
+  "Franco": "Strong pick-off potential. Avoid isolated positioning and buy defensive mobility.",
+  "Hayabusa": "Dangerous against squishy backlines. Grouping reduces assassination opportunities.",
+  "Tigreal": "Strong teamfight engage. Purify or proper spacing can reduce combo impact.",
+  "Ixia": "Excels in grouped fights and sustained damage. Pressure early before scaling."
+};
+
+function getCounterInsight(heroName){
+  return window.HEROCORE_COUNTER_INSIGHTS?.[heroName] || "Adjust builds, positioning and team coordination depending on the matchup.";
+}
+
+
+
+/* ===== Global Favorites Key Sync v10 ===== */
+(function(){
+  const mainKey = "herocore_favorite_heroes_v6";
+  const oldKey = "herocore_favorites";
+
+  function syncFavoriteKeys(){
+    try{
+      const a = JSON.parse(localStorage.getItem(mainKey) || "[]");
+      const b = JSON.parse(localStorage.getItem(oldKey) || "[]");
+      const merged = [...new Set([...(Array.isArray(a)?a:[]), ...(Array.isArray(b)?b:[])])].sort();
+      localStorage.setItem(mainKey, JSON.stringify(merged));
+      localStorage.setItem(oldKey, JSON.stringify(merged));
+    }catch(e){}
+  }
+
+  syncFavoriteKeys();
+  window.addEventListener("storage", syncFavoriteKeys);
+})();
+
+
+
+/* ===== Mobile Hero Search Suggestions v11 ===== */
+(function(){
+  function getAllHeroNames(){
+    const fromData = (window.HEROES || window.heroes || [])
+      .map(h => h && h.name)
+      .filter(Boolean);
+
+    const fromCards = [...document.querySelectorAll(".hero-card")]
+      .map(card => card.dataset.hero || card.querySelector("h2,h3,.hero-name")?.textContent?.trim())
+      .filter(Boolean);
+
+    return [...new Set([...fromData, ...fromCards])].sort();
+  }
+
+  function normalize(s){
+    return String(s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+  }
+
+  function findSearchInputs(){
+    return [...document.querySelectorAll("input")]
+      .filter(input => {
+        const ph = (input.placeholder || "").toLowerCase();
+        const id = (input.id || "").toLowerCase();
+        const cls = (input.className || "").toLowerCase();
+        return ph.includes("search") || ph.includes("hero") || id.includes("search") || cls.includes("search");
+      });
+  }
+
+  function applyFilter(query){
+    const q = normalize(query);
+    document.querySelectorAll(".hero-card").forEach(card => {
+      const text = normalize(card.dataset.hero || card.innerText);
+      card.style.display = !q || text.includes(q) ? "" : "none";
+    });
+  }
+
+  function attachSuggestions(input){
+    if(input.dataset.suggestionsReady === "1") return;
+    input.dataset.suggestionsReady = "1";
+    input.autocomplete = "off";
+
+    const wrap = document.createElement("div");
+    wrap.className = "hero-suggestion-wrap";
+    input.parentElement?.insertBefore(wrap, input);
+    wrap.appendChild(input);
+
+    const box = document.createElement("div");
+    box.className = "hero-suggestions";
+    wrap.appendChild(box);
+
+    function render(){
+      const value = input.value.trim();
+      const q = normalize(value);
+      const names = getAllHeroNames();
+
+      if(!q){
+        box.innerHTML = "";
+        box.classList.remove("show");
+        applyFilter("");
+        return;
+      }
+
+      const matches = names
+        .filter(name => normalize(name).includes(q))
+        .slice(0, 8);
+
+      box.innerHTML = "";
+
+      if(matches.length === 0){
+        const empty = document.createElement("div");
+        empty.className = "hero-suggestion-empty";
+        empty.textContent = "No hero found";
+        box.appendChild(empty);
+      }else{
+        matches.forEach(name => {
+          const item = document.createElement("button");
+          item.type = "button";
+          item.className = "hero-suggestion-item";
+          item.textContent = name;
+          item.addEventListener("click", () => {
+            input.value = name;
+            applyFilter(name);
+            box.classList.remove("show");
+            const card = [...document.querySelectorAll(".hero-card")]
+              .find(c => normalize(c.dataset.hero || c.innerText).includes(normalize(name)));
+            card?.scrollIntoView({behavior:"smooth", block:"center"});
+          });
+          box.appendChild(item);
+        });
+      }
+
+      box.classList.add("show");
+      applyFilter(value);
+    }
+
+    input.addEventListener("input", render);
+    input.addEventListener("focus", render);
+
+    document.addEventListener("click", e => {
+      if(!wrap.contains(e.target)) box.classList.remove("show");
+    });
+  }
+
+  function boot(){
+    findSearchInputs().forEach(attachSuggestions);
+  }
+
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
+
+  const mo = new MutationObserver(() => boot());
+  mo.observe(document.documentElement, {childList:true, subtree:true});
+})();

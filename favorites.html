@@ -8,6 +8,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="site.webmanifest">
+
+  <meta property="og:title" content="HeroCore MLBB">
+  <meta property="og:description" content="MLBB hero counters, builds, matchup tools and draft helper.">
+  <meta property="og:type" content="website">
+
 </head>
 
 <body class="toolStandalonePage">
@@ -23,7 +28,7 @@
       <a href="tier-list.html">Tier List</a>
       <a href="guides.html">Guides</a>
       <a href="matchup.html">Matchup</a>
-      <a href="favorites.html">Favorites</a>
+      <a href="favorites.html">Favorites <span class="fav-count" data-fav-count>0</span></a>
       <a href="about.html">About</a>
       <button class="soundToggle" type="button" title="Toggle sound">🔊</button>
     </div>
@@ -64,4 +69,135 @@ Favorite Heroes • static-safe rebuild</footer>
 <script src="app.js"></script>
 
 <script>initFavoritesPage();</script>
+
+<script>
+/* ===== Favorites Page Fix v10 ===== */
+(function(){
+  const POSSIBLE_KEYS = [
+    "herocore_favorite_heroes_v6",
+    "herocore_favorites",
+    "favorites",
+    "favoriteHeroes",
+    "mlbb_favorites"
+  ];
+
+  function readAllFavorites(){
+    const names = new Set();
+
+    for(const key of POSSIBLE_KEYS){
+      try{
+        const raw = localStorage.getItem(key);
+        if(!raw) continue;
+
+        const data = JSON.parse(raw);
+
+        if(Array.isArray(data)){
+          data.forEach(x => {
+            if(typeof x === "string") names.add(x);
+            else if(x && typeof x === "object" && x.name) names.add(x.name);
+          });
+        }else if(data && typeof data === "object"){
+          Object.keys(data).forEach(k => {
+            if(data[k]) names.add(k);
+          });
+        }
+      }catch(e){}
+    }
+
+    const finalList = [...names].filter(Boolean).sort();
+
+    // Sync back into the main v6 key so all pages agree.
+    localStorage.setItem("herocore_favorite_heroes_v6", JSON.stringify(finalList));
+    localStorage.setItem("herocore_favorites", JSON.stringify(finalList));
+
+    return finalList;
+  }
+
+  function findHero(name){
+    const all = window.HEROES || window.heroes || [];
+    return all.find(h => h.name === name || h.slug === name || h.id === name) || { name };
+  }
+
+  function heroImage(hero){
+    return window.LOCAL_IMAGES?.heroes?.[hero.name] ||
+           window.HERO_IMAGES?.[hero.name] ||
+           "assets/placeholder.svg";
+  }
+
+  function renderFavorites(){
+    const favs = readAllFavorites();
+
+    const savedText = [...document.querySelectorAll("p,div,span")]
+      .find(el => /heroes saved/i.test(el.textContent || ""));
+
+    if(savedText){
+      savedText.textContent = `${favs.length} heroes saved`;
+    }
+
+    const emptyText = [...document.querySelectorAll("p,div")]
+      .find(el => /No favorites yet/i.test(el.textContent || ""));
+
+    let container =
+      document.querySelector("#favorites-list") ||
+      document.querySelector(".favorites-list") ||
+      document.querySelector(".hero-grid") ||
+      document.querySelector("main section:nth-of-type(2)") ||
+      document.querySelector("main");
+
+    if(!container) return;
+
+    // Remove old rendered favorites grid if exists
+    document.querySelector("#fixed-favorites-grid")?.remove();
+
+    const grid = document.createElement("div");
+    grid.id = "fixed-favorites-grid";
+    grid.className = "hero-grid";
+    grid.style.marginTop = "22px";
+
+    if(favs.length === 0){
+      if(emptyText) emptyText.style.display = "";
+      return;
+    }
+
+    if(emptyText) emptyText.style.display = "none";
+
+    favs.forEach(name => {
+      const hero = findHero(name);
+      const card = document.createElement("article");
+      card.className = "hero-card favorite-active";
+      card.dataset.hero = hero.name;
+
+      const slug = hero.slug || String(hero.name).toLowerCase().replaceAll(" ", "-").replaceAll("'", "");
+      const role = hero.role || hero.primaryRole || "Hero";
+      const lane = hero.lane || hero.bestLane || "MLBB";
+
+      card.innerHTML = `
+        <img src="${heroImage(hero)}" alt="${hero.name}" loading="lazy"
+          onerror="this.src='assets/placeholder.svg'">
+        <h3>${hero.name}</h3>
+        <p>${role} • ${lane}</p>
+        <a class="btn" href="heroes/${slug}.html">Open guide</a>
+      `;
+
+      grid.appendChild(card);
+    });
+
+    container.appendChild(grid);
+
+    // Update nav count too
+    document.querySelectorAll("[data-fav-count], .fav-count").forEach(el => {
+      el.textContent = favs.length;
+    });
+  }
+
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", renderFavorites);
+  }else{
+    renderFavorites();
+  }
+
+  window.addEventListener("storage", renderFavorites);
+})();
+</script>
+
 </body></html>

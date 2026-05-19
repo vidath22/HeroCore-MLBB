@@ -1,0 +1,4 @@
+Added mobile hero search suggestions/autocomplete.
+- Partial hero names now show suggestion dropdown.
+- Tapping a suggestion fills the input and filters hero cards.
+- Works with dynamic rendered hero cards.

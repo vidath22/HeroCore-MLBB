@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Replace example.com with your real domain after you buy/connect one.
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://vidath22.github.io/HeroCore-MLBB/sitemap.xml
