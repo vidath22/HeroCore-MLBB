@@ -1137,3 +1137,74 @@ document.addEventListener('DOMContentLoaded', () => {
   setActiveNavTab();
   setTimeout(setActiveNavTab, 300);
 });
+
+
+/* ===== GitHub Pages Remote Image Fallback Fix ===== */
+function heroRemoteCandidates(heroName){
+  const safe = String(heroName || '').trim();
+  const underscore = encodeURIComponent(safe.replaceAll(' ', '_'));
+  const existing = (window.HERO_IMAGES && window.HERO_IMAGES[safe]) || '';
+  return [
+    existing,
+    `https://mobile-legends.fandom.com/wiki/Special:FilePath/${underscore}.png`,
+    `https://mobile-legends.fandom.com/wiki/Special:FilePath/${underscore}.jpg`
+  ].filter(Boolean);
+}
+
+function setSmartHeroImage(img, heroName){
+  const candidates = heroRemoteCandidates(heroName);
+  let i = 0;
+  const initials = String(heroName || 'Hero').split(' ').map(x => x[0]).join('').slice(0,2).toUpperCase();
+
+  function tryNext(){
+    if(i >= candidates.length){
+      const parent = img.parentElement;
+      if(parent){
+        parent.classList.add('imageMissing');
+        parent.innerHTML = `<div class="smartImageFallback">${initials}</div>`;
+      }
+      return;
+    }
+    img.src = candidates[i++];
+  }
+
+  img.onerror = tryNext;
+  img.loading = 'lazy';
+  img.referrerPolicy = 'no-referrer';
+  tryNext();
+}
+
+function fixAllRemoteImages(){
+  document.querySelectorAll('img[alt]').forEach(img => {
+    const alt = img.getAttribute('alt') || '';
+    if(!alt || img.dataset.smartFixed === '1') return;
+
+    const src = img.getAttribute('src') || '';
+    const isHeroLike = img.closest('.heroThumb,.matchPortrait,.relatedThumb,.synergyPortrait,.tierThumb') || (window.HERO_IMAGES && window.HERO_IMAGES[alt]);
+
+    if(isHeroLike){
+      img.dataset.smartFixed = '1';
+      img.referrerPolicy = 'no-referrer';
+      if(src.includes('assets/heroes') || src === '' || src.includes('placeholder') || src.includes('data:image')){
+        setSmartHeroImage(img, alt);
+      } else {
+        img.onerror = () => setSmartHeroImage(img, alt);
+      }
+    }
+  });
+
+  document.querySelectorAll('.miniBuild img, .skillIcon img, .build img, .itemIcon img').forEach(img => {
+    if(img.dataset.iconFixed === '1') return;
+    img.dataset.iconFixed = '1';
+    img.onerror = () => {
+      img.style.display = 'none';
+      if(img.parentElement) img.parentElement.classList.add('iconMissing');
+    };
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(fixAllRemoteImages, 100);
+  setTimeout(fixAllRemoteImages, 700);
+  setTimeout(fixAllRemoteImages, 1600);
+});

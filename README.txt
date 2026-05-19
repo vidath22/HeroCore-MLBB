@@ -249,3 +249,9 @@ About tab fix:
 - Updated 0 pages.
 
 About tab nav-only fix: Added About inside navbar on 127 pages.
+
+Remote image fallback fix:
+- Updated data/hero-images.js to use online Fandom Special:FilePath URLs.
+- Added smart JS fallback if a remote image fails.
+- Added initials fallback instead of grey broken placeholder.
+- Added graceful hiding for broken item/skill icons.
