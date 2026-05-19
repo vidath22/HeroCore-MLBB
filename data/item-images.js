@@ -1,0 +1,1 @@
+window.ITEM_IMAGES = {};

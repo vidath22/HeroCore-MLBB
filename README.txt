@@ -266,3 +266,8 @@ Image proxy fix:
 - Hero images now use images.weserv.nl proxy + Fandom image source.
 - This avoids many hotlink blocking problems on GitHub Pages.
 - Local images are still not required.
+
+Final image fix:
+- Added _MLBB hero filename fallback for the remaining broken heroes.
+- Added data/item-images.js for build item icons.
+- Item icons use online proxy where available and hide cleanly if unavailable.
