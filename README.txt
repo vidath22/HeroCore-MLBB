@@ -255,3 +255,9 @@ Remote image fallback fix:
 - Added smart JS fallback if a remote image fails.
 - Added initials fallback instead of grey broken placeholder.
 - Added graceful hiding for broken item/skill icons.
+
+Deep online image fix:
+- Switched hero-images.js to Fandom Special:Redirect/file URLs.
+- Added multi-step fallback for online hero images.
+- Added final initials fallback if external image host blocks hotlinking.
+- No local images required.
