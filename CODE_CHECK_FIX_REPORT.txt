@@ -1,0 +1,145 @@
+Problem found: index.html and hero pages were static-rendered with old online Fandom image URLs.
+So even though local images existed, cards still tried online URLs and showed placeholders.
+
+Fix applied: static HTML <img> src values were changed to local assets paths.
+
+Hero local image mappings: 115
+Item local image mappings: 14
+Total image src replaced: 2937
+HTML files changed: 119
+
+Changed files:
+- index.html: 363
+- tier-list.html: 165
+- meta-updates.html: 24
+- heroes/aamon.html: 21
+- heroes/akai.html: 19
+- heroes/aldous.html: 21
+- heroes/alice.html: 22
+- heroes/alucard.html: 21
+- heroes/alpha.html: 21
+- heroes/angela.html: 19
+- heroes/argus.html: 21
+- heroes/arlott.html: 21
+- heroes/atlas.html: 19
+- heroes/aulus.html: 21
+- heroes/aurora.html: 22
+- heroes/badang.html: 21
+- heroes/balmond.html: 21
+- heroes/bane.html: 21
+- heroes/barats.html: 19
+- heroes/baxia.html: 19
+- heroes/beatrix.html: 20
+- heroes/belerick.html: 19
+- heroes/benedetta.html: 21
+- heroes/brody.html: 20
+- heroes/bruno.html: 20
+- heroes/carmilla.html: 19
+- heroes/cecilion.html: 22
+- heroes/chang-e.html: 22
+- heroes/chip.html: 19
+- heroes/chou.html: 21
+- heroes/claude.html: 20
+- heroes/clint.html: 20
+- heroes/cyclops.html: 22
+- heroes/diggie.html: 19
+- heroes/dyrroth.html: 21
+- heroes/edith.html: 19
+- heroes/esmeralda.html: 21
+- heroes/estes.html: 19
+- heroes/eudora.html: 22
+- heroes/fanny.html: 21
+- heroes/faramis.html: 22
+- heroes/floryn.html: 19
+- heroes/franco.html: 19
+- heroes/fredrinn.html: 19
+- heroes/freya.html: 21
+- heroes/gatotkaca.html: 19
+- heroes/gloo.html: 19
+- heroes/gord.html: 22
+- heroes/granger.html: 20
+- heroes/grock.html: 19
+- heroes/guinevere.html: 21
+- heroes/gusion.html: 21
+- heroes/hanabi.html: 20
+- heroes/hanzo.html: 21
+- heroes/harith.html: 22
+- heroes/harley.html: 22
+- heroes/hayabusa.html: 21
+- heroes/helcurt.html: 21
+- heroes/hilda.html: 19
+- heroes/hylos.html: 19
+- heroes/irithel.html: 20
+- heroes/ixia.html: 20
+- heroes/jawhead.html: 21
+- heroes/johnson.html: 19
+- heroes/joy.html: 21
+- heroes/julian.html: 21
+- heroes/kadita.html: 22
+- heroes/kagura.html: 22
+- heroes/kaja.html: 19
+- heroes/karina.html: 21
+- heroes/karrie.html: 20
+- heroes/khaleed.html: 21
+- heroes/khufra.html: 19
+- heroes/lancelot.html: 21
+- heroes/lapu-lapu.html: 21
+- heroes/layla.html: 20
+- heroes/leomord.html: 21
+- heroes/lesley.html: 20
+- heroes/ling.html: 21
+- heroes/lolita.html: 19
+- heroes/lunox.html: 22
+- heroes/lylia.html: 22
+- heroes/martis.html: 21
+- heroes/masha.html: 21
+- heroes/mathilda.html: 19
+- heroes/melissa.html: 20
+- heroes/minotaur.html: 19
+- heroes/minsitthar.html: 21
+- heroes/miya.html: 20
+- heroes/moskov.html: 20
+- heroes/nana.html: 22
+- heroes/natalia.html: 21
+- heroes/natan.html: 20
+- heroes/novaria.html: 22
+- heroes/odette.html: 22
+- heroes/paquito.html: 21
+- heroes/pharsa.html: 22
+- heroes/popol-and-kupa.html: 20
+- heroes/rafaela.html: 19
+- heroes/roger.html: 20
+- heroes/ruby.html: 20
+- heroes/saber.html: 21
+- heroes/selena.html: 21
+- heroes/silvanna.html: 21
+- heroes/sun.html: 21
+- heroes/terizla.html: 21
+- heroes/thamuz.html: 21
+- heroes/tigreal.html: 19
+- heroes/valentina.html: 22
+- heroes/valir.html: 22
+- heroes/vexana.html: 22
+- heroes/wanwan.html: 20
+- heroes/xavier.html: 22
+- heroes/yi-sun-shin.html: 20
+- heroes/yin.html: 21
+- heroes/yu-zhong.html: 21
+- heroes/yve.html: 22
+- heroes/zhask.html: 22
+- heroes/zilong.html: 21
+
+Unmatched alt examples:
+Antique Cuirass
+Athena Shield
+Blade of Heptaseas
+Corrosion Scythe
+Demon Hunter Sword
+Enchanted Talisman
+Fleeting Time
+Guardian Helmet
+Immortality
+Magic Shoes
+Ruby
+War Axe
+Wind of Nature
