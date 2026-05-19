@@ -1,0 +1,12 @@
+Real sitemap generated.
+
+Total indexed HTML pages added:
+133
+
+Includes:
+- Homepage
+- Hero pages
+- Tools pages
+- Favorites page
+- Guides
+- Matchup pages
