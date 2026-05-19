@@ -755,6 +755,15 @@ function robustHeroImage(hero){
   return local || online || '';
 }
 
+function robustItemImage(itemName){
+  if(!itemName) return "";
+  const local = window.LOCAL_ITEM_IMAGES?.[itemName];
+  if(local) return local;
+  const safe = String(itemName).replaceAll(" ", "_").replaceAll("'", "%27");
+  return `https://mobile-legends.fandom.com/wiki/Special:FilePath/${safe}.png`;
+}
+
+
 function smallHeroPortrait(hero){
   const src = robustHeroImage(hero);
   const initials = (hero?.name || 'Hero').split(' ').map(x => x[0]).join('').slice(0,2).toUpperCase();
