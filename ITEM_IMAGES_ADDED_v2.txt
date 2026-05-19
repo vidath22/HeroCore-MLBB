@@ -1,0 +1,8 @@
+Additional item images added:
+
+Corrosion_Scythe.webp
+Fleeting_Time.webp
+Guardian_Helmet.webp
+Magic_Shoes.webp
+War_Axe.webp
+Wind_of_Nature.webp
