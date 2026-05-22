@@ -1823,3 +1823,9 @@ input[type='text']{
     font-size:16px;
   }
 }
+
+/* ===== FULL SEO FIX v13 ===== */
+.seo-page-intro,.seo-hero-guide{max-width:980px;margin:26px auto;padding:22px;border-radius:22px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);box-shadow:0 12px 28px rgba(0,0,0,.12)}
+.seo-page-intro h1,.seo-hero-guide h1{font-size:clamp(1.55rem,3vw,2.3rem);line-height:1.15;margin-bottom:12px}
+.seo-page-intro h2,.seo-hero-guide h2{font-size:clamp(1.1rem,2vw,1.42rem);margin-top:18px;margin-bottom:8px}
+.seo-page-intro p,.seo-hero-guide p{opacity:.9}.seo-related-links a{margin-right:10px;font-weight:700}

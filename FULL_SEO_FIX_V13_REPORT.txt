@@ -1,0 +1,10 @@
+HeroCore MLBB FULL SEO FIX v13
+Base ZIP used: HeroCore_MLBB_LATEST_FIXED.zip
+Hero pages updated: 116
+General pages updated: 9
+Sitemap URLs: 134
+
+Upload all extracted files to GitHub repo root, replace old files, then:
+1. Inspect homepage and request indexing
+2. Inspect 5-10 hero pages and request indexing
+3. Submit sitemap.xml again in Search Console
